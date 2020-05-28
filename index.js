@@ -7,20 +7,16 @@ const HOLD = "$HOLD"
 hooks
     .createHook( {
         init ( asyncId, type, triggerId ) {
-            console.log("init", asyncId, type, triggerId)
             let existing = cls[ triggerId ] || {}
             cls[ asyncId ] = existing[HOLD] ? existing : { ...existing }
         },
         before ( id ) {
-            console.log("before", id, cls[id])
             current = cls[ id ] = cls[id] || {}
         },
         after () {
-            console.log("after")
             current = null
         },
         destroy ( id ) {
-            console.log("destroy", id, cls[id])
             delete cls[ id ]
         },
     } )
