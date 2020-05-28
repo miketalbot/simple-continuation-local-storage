@@ -1,0 +1,15 @@
+{
+  "name": "simple-cls",
+  "version": "1.0.1",
+  "description": "Simple continuation local storage for Node > 6",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --exit *.test.js"
+  },
+  "author": "Mike Talbot",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.2.0"
+  }
+}
