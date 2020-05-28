@@ -31,11 +31,13 @@ module.exports = new Proxy( getCurrent, {
         if ( prop === '$hold' ) return function(hold) {
             current[HOLD] = !!hold
         }
-        if( prop=== '$init') return function(inAsync) {
+        if( prop=== '$init') return function(fn) {
             current[HOLD] = true
-            if(inAsync && current._parent) {
-                current._parent[HOLD] = true
-                current._parent._parent && (current._parent._parent[HOLD] = true)
+            if(fn) {
+                return function(...params) {
+                    current[HOLD] = true
+                    fn(...params)
+                }
             }
         }
         if( prop === '$') return current
