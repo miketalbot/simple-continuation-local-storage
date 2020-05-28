@@ -35,6 +35,7 @@ module.exports = new Proxy( getCurrent, {
             current[HOLD] = true
             if(inAsync) {
                 current._parent[HOLD] = true
+                current._parent[HOLD]._parent[HOLD] = true
             }
         }
         if( prop === '$') return current

@@ -1,6 +1,6 @@
 {
   "name": "simple-continuation-local-storage",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Simple continuation local storage for Node > 6",
   "main": "index.js",
   "scripts": {
