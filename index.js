@@ -32,10 +32,10 @@ module.exports = new Proxy( getCurrent, {
             current[HOLD] = !!hold
         }
         if( prop=== '$init') return function(fn) {
-            current[HOLD] = true
+            current && (current[HOLD] = true)
             if(fn) {
                 return function(...params) {
-                    current[HOLD] = true
+                    current && (current[HOLD] = true)
                     fn(...params)
                 }
             }
