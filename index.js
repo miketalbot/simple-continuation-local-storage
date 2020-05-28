@@ -34,6 +34,7 @@ module.exports = new Proxy( getCurrent, {
         if( prop=== '$init') return function() {
             current[HOLD] = true
         }
+        if( prop === '$') return current
         if ( current ) {
             return current[ prop ]
         }
