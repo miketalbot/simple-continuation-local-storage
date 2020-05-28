@@ -1,11 +1,11 @@
 {
   "name": "simple-continuation-local-storage",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Simple continuation local storage for Node > 6",
   "main": "index.js",
   "scripts": {
     "test": "mocha --exit *.test.js",
-    "push": "message=\"${1:-build}\" && versiony ./package.json --patch && npm publish && git add . && git commit -am \"$message\" && git push"
+    "push": "cm=\"${message:-build}\" && versiony ./package.json --patch && npm publish && git add . && git commit -am \"$cm\" && git push"
   },
   "author": "Mike Talbot",
   "license": "ISC",
