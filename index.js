@@ -35,11 +35,10 @@ module.exports = new Proxy( getCurrent, {
             if(fn) {
                 return function(...params) {
                     current && (current[HOLD] = true)
-                    fn(...params)
+                    return fn(...params)
                 }
             }
         }
-        if( prop === '$') return current
         if ( current ) {
             return current[ prop ]
         }
@@ -48,8 +47,11 @@ module.exports = new Proxy( getCurrent, {
     set ( obj, prop, value ) {
         if ( current ) {
             current[ prop ] = value
+            return true
+        } else {
+            return false
         }
-        return true
+
     },
     has ( obj, prop ) {
         return prop in current
