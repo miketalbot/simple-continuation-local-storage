@@ -25,7 +25,6 @@ hooks
 function getCurrent () {
     return current
 }
-
 module.exports = new Proxy( getCurrent, {
     get ( obj, prop ) {
         if ( prop === '$hold' ) return function(hold) {
