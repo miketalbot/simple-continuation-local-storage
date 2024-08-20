@@ -1,7 +1,7 @@
 const hooks = require( 'async_hooks' )
 
 const cls = {}
-let current = null
+let current = {}
 const HOLD = "$HOLD"
 
 hooks
@@ -14,7 +14,7 @@ hooks
             current = cls[ id ] = cls[id] || {}
         },
         after () {
-            current = null
+            current = {}
         },
         destroy ( id ) {
             delete cls[ id ]
